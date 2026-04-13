@@ -1,0 +1,14 @@
+# Credentials and local config — never commit
+config.ini
+
+# Runtime data and state
+data.csv
+scrape_checkpoint.txt
+upload_checkpoint.txt
+
+# Python
+__pycache__/
+*.py[cod]
+.python-version
+venv/
+.venv/

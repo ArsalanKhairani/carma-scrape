@@ -1,0 +1,18 @@
+[carma]
+url = http://www.carmasmartmetering.com/DirectConsumptionDev/login.aspx
+username = YOUR_UNIT_ADDRESS
+password = YOUR_PASSWORD
+start_date = 01/Jan/2024
+sleep_time = 1
+
+[homeassistant]
+# Include http:// or https://
+url = http://192.168.x.x:8123
+# Profile -> Security -> Create Long-Lived Access Token
+token = YOUR_LONG_LIVED_ACCESS_TOKEN_HERE
+sensor_name = sensor.carma_energy_daily
+
+[files]
+data_file = data.csv
+scrape_checkpoint_file = scrape_checkpoint.txt
+upload_checkpoint_file = upload_checkpoint.txt
