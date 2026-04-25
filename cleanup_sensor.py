@@ -91,12 +91,10 @@ except Exception as e:
 print("\n4. Purging old recorder data...")
 try:
     response = requests.post(
-        f"{HA_URL}/api/services/recorder/purge",
+        f"{HA_URL}/api/services/recorder/purge_entities",
         headers=HEADERS,
         json={
             "entity_id": SENSOR_NAME,
-            "keep_days": 0,
-            "repack": True
         },
         timeout=30
     )
