@@ -188,11 +188,14 @@ def upload():
 
         print("✓ Connected and authenticated")
 
-        # Create the sensor entity first (required before importing statistics)
+        # Create the sensor entity first (required before importing statistics).
+        # State must match the final cumulative value so HA doesn't see a drop
+        # from the last statistics entry to 0 and insert a negative correction.
+        final_cumulative = cumulative_new_data[-1][1]
         print("\nCreating sensor entity...")
         try:
             sensor_payload = {
-                "state": "0",
+                "state": str(round(final_cumulative, 3)),
                 "attributes": {
                     "unit_of_measurement": "kWh",
                     "device_class": "energy",
