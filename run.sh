@@ -9,6 +9,10 @@ cd "$DIR"
 
 PYTHON="${DIR}/venv/bin/python3"
 
+notify() { "$PYTHON" -c "from akutils import notify; notify('$1', title='CARMA')" 2>/dev/null || true; }
+
+trap 'notify "Pipeline failed"' ERR
+
 echo "=== $(date) ==="
 echo "--- Scraping ---"
 "$PYTHON" scrape.py
@@ -17,3 +21,4 @@ echo "--- Uploading ---"
 "$PYTHON" upload_websocket.py
 
 echo "--- Done ---"
+notify "Scrape and upload complete"

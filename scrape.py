@@ -43,13 +43,13 @@ def scrape():
         # # Locate the username and password fields, and enter login credentials
         username_txt = driver.find_element(By.ID, "username_txt")  # Replace with the actual ID of the username field
         password_txt = driver.find_element(By.ID, "password_txt")  # Replace with the actual ID of the password field
-        
+
         # # Enter your credentials
         username_txt.send_keys(username)
         password_txt.send_keys(password)
-        
+
         # # Submit the form
-        login_button = driver.find_element(By.ID, "login_btn") 
+        login_button = driver.find_element(By.ID, "login_btn")
         login_button.click()
 
         # Wait until the next page loads and a specific element is available
